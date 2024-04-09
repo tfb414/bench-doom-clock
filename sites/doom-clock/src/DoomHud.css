@@ -1,0 +1,42 @@
+
+
+.doom-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+    height: 100px;
+    border: 8px solid white;
+    border-image: url(./images/doom-border-texture2.jpg) 5 5 round;
+    min-width: 900px;
+}
+
+.doom-box {
+    margin-right: 0px;
+    margin-left: 0px;
+    text-align: center;
+    flex: 1 0 auto;
+    border-right: 6px solid white;
+    border-image: url(./images/doom-border-texture2.jpg) 5 5 round;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+}
+
+.doom-box:last-child {
+    border-right: none;
+}
+
+.doom-box span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.hud-label {
+    height: 30%;
+}

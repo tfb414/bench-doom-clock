@@ -1,0 +1,28 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# IDE and Text Editor Files
+.vscode/
+.idea/
+*.log
+*.sublime-project
+*.sublime-workspace
+
+# Dependency Directories
+node_modules/
+jspm_packages/
+vendor/
+
+# Build Output
+dist/
+build/
+out/
+
+# Other Common Exclusions
+.env  # Local environment variables
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

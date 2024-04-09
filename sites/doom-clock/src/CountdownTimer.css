@@ -1,0 +1,20 @@
+.countdown-display {
+    display: flex; /* Arrange time segments horizontally */
+    justify-content: center; /* Optionally center the time */
+}
+
+.time-segment {
+    display: inline-block; /* Adjust spacing if needed */
+    margin-right: 50px
+}
+
+.countdown-display img {
+    display: inline-block;
+    margin: 0 2px !important;
+    height: 25px;
+    width: auto;
+}
+
+.countdown-display div span {
+    align-content: center;
+}
