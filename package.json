@@ -3,6 +3,9 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
+    "deploy": "yarn workspace infra deploy",
+    "destroy": "yarn workspace infra destroy",
+    "predeploy": "yarn build",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
@@ -18,7 +21,7 @@
   },
   "packageManager": "yarn@1.22.19",
   "workspaces": [
-    "apps/*",
+    "sites/*",
     "packages/*",
     "infra/*"
   ]
