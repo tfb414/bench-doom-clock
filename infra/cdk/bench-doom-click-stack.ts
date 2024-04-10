@@ -4,7 +4,7 @@ import {BlockPublicAccess, BucketAccessControl} from "@aws-cdk/aws-s3";
 import {BucketDeployment, Source} from "aws-cdk-lib/aws-s3-deployment";
 import {SITES_ROOT} from "./appPaths";
 import {CfnOutput} from "aws-cdk-lib";
-
+import * as cloudfront from "aws-cdk-lib/aws-cloudfront"
 export interface BenchDoomClockStackBaseProps extends cdk.StackProps {
     stackName: string;
     owner?: string;
@@ -16,7 +16,7 @@ export class BenchDoomClockStack extends cdk.Stack {
         const bucketId = 'bench-doom-clock'
 
         const bucket = new cdk.aws_s3.Bucket(this, bucketId, {
-            publicReadAccess: true,
+            publicReadAccess: false,
             blockPublicAccess: BlockPublicAccess.BLOCK_ACLS,
             accessControl: BucketAccessControl.BUCKET_OWNER_FULL_CONTROL,
             websiteIndexDocument: 'index.html',
@@ -28,10 +28,27 @@ export class BenchDoomClockStack extends cdk.Stack {
             destinationBucket: bucket
         });
 
-        new CfnOutput(this, 'WebsiteURL', {
+        new CfnOutput(this, 'WebsiteURL',  {
             value: bucket.bucketWebsiteUrl,
             description: 'URL of the website',
         });
+
+
+        const distribution = new cloudfront.CloudFrontWebDistribution(this, 'my-cloud-front-thingy', {
+            originConfigs: [
+                {
+                    s3OriginSource: {
+                        s3BucketSource: bucket,
+                    },
+                    behaviors : [ {isDefaultBehavior: true}],
+                },
+            ],
+        });
+
+        new CfnOutput(this, 'what we got here?', {
+            value: distribution.distributionDomainName,
+        })
+
 
     }
 }

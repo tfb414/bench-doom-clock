@@ -1,5 +1,5 @@
 {
-  "name": "infra",
+  "name": "infra-dumb",
   "version": "0.1.0",
   "bin": {
     "infra": "bin/infra.js"
@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@aws-cdk/aws-s3": "^1.204.0",
+    "@aws-solutions-constructs/aws-cloudfront-s3": "^2.54.1",
     "aws-cdk-lib": "2.136.0",
     "constructs": "^10.0.0",
     "git-rev-sync": "^3.0.2",
